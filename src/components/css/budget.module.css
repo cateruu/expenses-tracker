@@ -1,0 +1,42 @@
+.budget {
+  grid-area: budget;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  padding: 15px 10px;
+  display: grid;
+  grid-template: 35px auto / auto 40px;
+  grid-template-areas:
+    'header add'
+    'money edit';
+  align-items: center;
+  justify-items: center;
+}
+
+.header {
+  font-family: 'Karla', sans-serif;
+  color: var(--text-color);
+  font-size: 1.6rem;
+  grid-area: header;
+  justify-self: left;
+}
+
+.add {
+  color: var(--text-color);
+  font-size: 25px;
+  grid-area: add;
+  cursor: pointer;
+}
+
+.money {
+  grid-area: money;
+  font-size: 2rem;
+  color: var(--text-color);
+  overflow: hidden;
+}
+
+.edit {
+  grid-area: edit;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--text-color-placeholder);
+}

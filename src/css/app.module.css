@@ -1,0 +1,21 @@
+.container {
+  width: 100vw;
+  min-height: 100vh;
+  position: relative;
+}
+
+.main {
+  width: 60%;
+  height: 80%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  grid-template: 130px auto / 280px auto;
+  grid-template-areas:
+    'budget expenses'
+    'overview expenses';
+  gap: 30px;
+  font-family: 'Inter', sans-serif;
+}
