@@ -8,7 +8,7 @@ const Budget = () => {
     <section className={classes.budget}>
       <h2 className={classes.header}>Budget</h2>
       <FontAwesomeIcon icon={faCirclePlus} className={classes.add} />
-      <p className={classes.money}>$99999999,99</p>
+      <p className={classes.money}>$9999,99</p>
       <FontAwesomeIcon icon={faPenToSquare} className={classes.edit} />
     </section>
   );
