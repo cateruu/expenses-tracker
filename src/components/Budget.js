@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import classes from './css/budget.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 // components
 import BudgetInput from './BudgetInput';
 
@@ -21,11 +21,19 @@ const Budget = () => {
   return (
     <section className={classes.budget}>
       <h2 className={classes.header}>Budget</h2>
-      <FontAwesomeIcon
-        icon={faCirclePlus}
-        className={classes.add}
-        onClick={addBudget}
-      />
+      {isAddingBudget ? (
+        <FontAwesomeIcon
+          icon={faCircleMinus}
+          className={classes.remove}
+          onClick={addBudget}
+        />
+      ) : (
+        <FontAwesomeIcon
+          icon={faCirclePlus}
+          className={classes.add}
+          onClick={addBudget}
+        />
+      )}
       <p className={classes.money}>${budget}</p>
       {isAddingBudget && (
         <BudgetInput handleSubmit={addBudget} setBudget={setBudget} />

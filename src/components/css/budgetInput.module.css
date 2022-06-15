@@ -1,9 +1,10 @@
 .form {
   position: absolute;
   top: 13px;
+  right: 45px;
   border: 1px solid var(--border-color);
   border-radius: 10px;
-  width: 260px;
+  width: 230px;
   height: 40px;
   display: flex;
   justify-content: space-around;
@@ -18,7 +19,7 @@
 }
 
 .input {
-  width: 180px;
+  width: 150px;
   height: 100%;
   font-size: 1.4rem;
   border: none;

@@ -27,6 +27,15 @@
   cursor: pointer;
 }
 
+.remove {
+  grid-area: add;
+  align-self: center;
+  justify-self: center;
+  font-size: 25px;
+  color: var(--error-color);
+  cursor: pointer;
+}
+
 .expensesContainer {
   grid-area: expenses;
   width: 100%;

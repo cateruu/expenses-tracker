@@ -28,6 +28,15 @@
   cursor: pointer;
 }
 
+.remove {
+  grid-area: add;
+  align-self: center;
+  justify-self: center;
+  font-size: 25px;
+  color: var(--error-color);
+  cursor: pointer;
+}
+
 .money {
   grid-area: money;
   font-size: 2rem;
