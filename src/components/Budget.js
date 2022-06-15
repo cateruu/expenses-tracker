@@ -1,18 +1,22 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import classes from './css/budget.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
 // components
 import BudgetInput from './BudgetInput';
 
 const Budget = () => {
   const [isAddingBudget, setIsAddingBudget] = useState(false);
-  const [budget, setBudget] = useState(0);
+  const [budget, setBudget] = useState(localStorage.getItem('budget') || 0);
 
   const addBudget = () => {
     setIsAddingBudget((prevState) => !prevState);
   };
+
+  useEffect(() => {
+    localStorage.setItem('budget', budget);
+  }, [budget]);
 
   return (
     <section className={classes.budget}>
@@ -23,8 +27,9 @@ const Budget = () => {
         onClick={addBudget}
       />
       <p className={classes.money}>${budget}</p>
-      <FontAwesomeIcon icon={faPenToSquare} className={classes.edit} />
-      {isAddingBudget && <BudgetInput handleSubmit={addBudget} />}
+      {isAddingBudget && (
+        <BudgetInput handleSubmit={addBudget} setBudget={setBudget} />
+      )}
     </section>
   );
 };
