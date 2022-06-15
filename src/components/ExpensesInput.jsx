@@ -1,16 +1,22 @@
 import React from 'react';
 import { useState } from 'react';
 import classes from './css/expensesInput.module.css';
+// font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
+// helper functions
+import { getCurrentDay } from './getCurrentDay';
+// components
+import Calendar from './Calendar';
 
 const ExpensesInput = (props) => {
   const [formData, setFormData] = useState({
     title: '',
     money: '',
     category: '',
-    date: '22/05',
+    date: getCurrentDay(),
   });
+  const [isChangingDate, setIsChangingDate] = useState(false);
 
   const handleChange = (e) => {
     setFormData((prevState) => {
@@ -63,12 +69,13 @@ const ExpensesInput = (props) => {
         <option value='investments'>Investments</option>
       </select>
       <div className={classes.date}>
-        {formData.date}{' '}
+        {formData.date}
         <FontAwesomeIcon icon={faAngleDown} className={classes.dateArrow} />
       </div>
       <button className={classes.submit}>
         <FontAwesomeIcon icon={faCirclePlus} className={classes.add} />
       </button>
+      {isChangingDate ? <Calendar /> : null}
     </form>
   );
 };
