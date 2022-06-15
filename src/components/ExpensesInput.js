@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import classes from './css/expensesInput.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCirclePlus } from '@fortawesome/free-solid-svg-icons';
+import { faCirclePlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const ExpensesInput = (props) => {
   const [formData, setFormData] = useState({
@@ -40,6 +40,7 @@ const ExpensesInput = (props) => {
       <input
         type='number'
         placeholder='299.99'
+        step='0.01'
         className={classes.money}
         onChange={handleChange}
         value={formData.money}
@@ -61,7 +62,10 @@ const ExpensesInput = (props) => {
         <option value='housing'>Housing</option>
         <option value='investments'>Investments</option>
       </select>
-      <div className={classes.date}>{formData.date}</div>
+      <div className={classes.date}>
+        {formData.date}{' '}
+        <FontAwesomeIcon icon={faAngleDown} className={classes.dateArrow} />
+      </div>
       <button className={classes.submit}>
         <FontAwesomeIcon icon={faCirclePlus} className={classes.add} />
       </button>
