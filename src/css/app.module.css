@@ -20,3 +20,29 @@
   gap: 30px;
   font-family: 'Inter', sans-serif;
 }
+
+/* select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+} */
+
+input::placeholder {
+  font-size: 1.4rem;
+  color: var(--text-color-placeholder);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type='number'] {
+  -moz-appearance: textfield;
+}
