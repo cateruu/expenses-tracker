@@ -131,12 +131,12 @@ const ExpensesInput = (props) => {
         <option disabled value=''>
           Category
         </option>
-        <option value='travel'>Travel</option>
-        <option value='entertainment'>Entertainment</option>
-        <option value='food'>Food</option>
-        <option value='shopping'>Shopping</option>
-        <option value='housing'>Housing</option>
-        <option value='investments'>Investments</option>
+        <option value='Travel'>Travel</option>
+        <option value='Entertainment'>Entertainment</option>
+        <option value='Food'>Food</option>
+        <option value='Shopping'>Shopping</option>
+        <option value='Housing'>Housing</option>
+        <option value='Investments'>Investments</option>
       </select>
       <div className={classes.date} onClick={changingDate}>
         {formData.date}

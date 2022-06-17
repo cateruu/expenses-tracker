@@ -1,11 +1,13 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import classes from './css/expenses.module.css';
+import { nanoid } from 'nanoid';
 // font awesome
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 // components
 import ExpensesInput from './ExpensesInput';
+import Expense from './Expense';
 
 const Expenses = () => {
   const [isAddingExpense, setIsAddingExpense] = useState(false);
@@ -21,6 +23,18 @@ const Expenses = () => {
     const jsonExpenses = JSON.stringify(expenses);
     localStorage.setItem('expenses', jsonExpenses);
   }, [expenses]);
+
+  const expenseElemets = expenses.map((expense) => {
+    return (
+      <Expense
+        key={nanoid()}
+        title={expense.title}
+        amount={expense.amount}
+        category={expense.category}
+        date={expense.date}
+      />
+    );
+  });
 
   return (
     <section className={classes.expenses}>
@@ -41,7 +55,7 @@ const Expenses = () => {
       {isAddingExpense && (
         <ExpensesInput handleSubmit={addingExpense} setExpenses={setExpenses} />
       )}
-      <div className={classes.expensesContainer}></div>
+      <div className={classes.expensesContainer}>{expenseElemets}</div>
     </section>
   );
 };

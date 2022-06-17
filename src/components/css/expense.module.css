@@ -1,0 +1,32 @@
+.expense {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.category {
+  color: var(--text-color-light);
+  font-size: 0.7rem;
+}
+
+.date {
+  color: var(--text-color-light);
+  font-size: 0.6rem;
+}
+
+.amount {
+  font-size: 1.5rem;
+}
