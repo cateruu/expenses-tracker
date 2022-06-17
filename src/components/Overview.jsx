@@ -29,11 +29,28 @@ const data = {
   ],
 };
 
+const options = {
+  plugins: {
+    legend: {
+      position: 'bottom',
+      align: 'start',
+
+      labels: {
+        font: {
+          size: 12,
+          family: "'Inter', 'sans-serif'",
+          weight: '500',
+        },
+      },
+    },
+  },
+};
+
 const Overview = () => {
   return (
     <section className={classes.overview}>
       <h2 className={classes.header}>Overview</h2>
-      <Doughnut data={data} />
+      <Doughnut data={data} options={options} />
     </section>
   );
 };
