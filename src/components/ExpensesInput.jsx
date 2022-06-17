@@ -12,6 +12,10 @@ import Calendar from 'react-calendar';
 
 const ExpensesInput = (props) => {
   const [isChangingDate, setIsChangingDate] = useState(false);
+  const [isError, setIsError] = useState({
+    error: false,
+    text: '',
+  });
 
   const [formData, setFormData] = useState({
     title: '',
@@ -56,11 +60,38 @@ const ExpensesInput = (props) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formData);
+    if (!formData.title && !formData.category && !formData.money) {
+      setIsError({ error: true, text: 'Empty Title, Amount & Category' });
+      return;
+    } else if (!formData.title && !formData.category) {
+      setIsError({ error: true, text: 'Empty Title & Category' });
+      return;
+    } else if (!formData.title && !formData.money) {
+      setIsError({ error: true, text: 'Empty Title & Amount' });
+      return;
+    } else if (!formData.category && !formData.money) {
+      setIsError({ error: true, text: 'Empty Amount & Category' });
+      return;
+    } else if (!formData.title) {
+      setIsError({ error: true, text: 'Empty Title' });
+      return;
+    } else if (!formData.category) {
+      setIsError({ error: true, text: 'Empty Category' });
+      return;
+    } else if (!formData.money) {
+      setIsError({ error: true, text: 'Empty Amount' });
+      return;
+    }
+
+    props.handleSubmit();
   };
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit} noValidate>
+    <form
+      className={`${classes.form} ${isError.error ? classes.error : null}`}
+      onSubmit={handleSubmit}
+      noValidate
+    >
       <p className={classes.titleIcon}>T</p>
       <input
         type='text'
@@ -112,6 +143,9 @@ const ExpensesInput = (props) => {
           locale={'en-EN'}
           onChange={(value, event) => changeDate(value)}
         />
+      ) : null}
+      {isError.error ? (
+        <p className={classes.errorText}>{isError.text}</p>
       ) : null}
     </form>
   );

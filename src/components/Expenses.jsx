@@ -9,9 +9,9 @@ import ExpensesInput from './ExpensesInput';
 
 const Expenses = () => {
   const [isAddingExpense, setIsAddingExpense] = useState(false);
-  // const [expenses, setExpenses] = useState(
-  //   localStorage.getItem('expenses') || []
-  // );
+  const [expenses, setExpenses] = useState(
+    localStorage.getItem('expenses') || []
+  );
 
   const addingExpense = () => {
     setIsAddingExpense((prevState) => !prevState);

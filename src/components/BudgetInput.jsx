@@ -48,7 +48,9 @@ const BudgetInput = (props) => {
         className={classes.input}
         name='input'
       />
-      {isError ? <p className={classes.errorText}>{isError.text}</p> : null}
+      {isError.error ? (
+        <p className={classes.errorText}>{isError.text}</p>
+      ) : null}
       <button className={classes.submit}>
         <FontAwesomeIcon icon={faCirclePlus} className={classes.add} />
       </button>
