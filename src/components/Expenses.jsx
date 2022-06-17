@@ -20,8 +20,8 @@ const Expenses = () => {
   };
 
   useEffect(() => {
-    const jsonExpenses = JSON.stringify(expenses);
-    localStorage.setItem('expenses', jsonExpenses);
+    const expensesJSON = JSON.stringify(expenses);
+    localStorage.setItem('expenses', expensesJSON);
   }, [expenses]);
 
   const expenseElemets = expenses.map((expense) => {
