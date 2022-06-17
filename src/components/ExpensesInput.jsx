@@ -11,13 +11,14 @@ import { getCurrentDay } from './getCurrentDay';
 import Calendar from 'react-calendar';
 
 const ExpensesInput = (props) => {
+  const [isChangingDate, setIsChangingDate] = useState(false);
+
   const [formData, setFormData] = useState({
     title: '',
     money: '',
     category: '',
+    date: getCurrentDay(),
   });
-  const [isChangingDate, setIsChangingDate] = useState(false);
-  const [date, setDate] = useState(getCurrentDay());
 
   const changingDate = () => {
     setIsChangingDate((prevState) => !prevState);
@@ -34,7 +35,12 @@ const ExpensesInput = (props) => {
       month = `0${month}`;
     }
 
-    setDate(`${day}/${month}`);
+    setFormData((prevState) => {
+      return {
+        ...prevState,
+        date: `${day}/${month}`,
+      };
+    });
     setIsChangingDate((prevState) => !prevState);
   };
 
@@ -49,6 +55,8 @@ const ExpensesInput = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    console.log(formData);
   };
 
   return (
@@ -89,7 +97,7 @@ const ExpensesInput = (props) => {
         <option value='investments'>Investments</option>
       </select>
       <div className={classes.date} onClick={changingDate}>
-        {date}
+        {formData.date}
         <FontAwesomeIcon icon={faAngleDown} className={classes.dateArrow} />
       </div>
       <button className={classes.submit}>
