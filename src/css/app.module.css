@@ -3,6 +3,7 @@
   min-height: 100vh;
   position: relative;
   user-select: none;
+  overflow-x: hidden;
 }
 
 .main {
@@ -13,7 +14,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   display: grid;
-  grid-template: 130px auto / 280px auto;
+  grid-template: 130px 60vh / 280px auto;
   grid-template-areas:
     'budget expenses'
     'overview expenses';

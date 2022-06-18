@@ -107,6 +107,7 @@ const ExpensesInput = (props) => {
       <input
         type='text'
         placeholder='Title'
+        maxLength='20'
         className={classes.title}
         onChange={handleChange}
         value={formData.title}

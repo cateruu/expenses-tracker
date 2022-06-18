@@ -43,4 +43,15 @@
   padding: 20px 0;
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
+}
+
+.expensesContainer::-webkit-scrollbar {
+  width: 5px;
+  margin-left: 5px;
+}
+
+.expensesContainer::-webkit-scrollbar-thumb {
+  background-color: var(--text-color-placeholder);
+  border-radius: 5px;
 }

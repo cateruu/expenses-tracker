@@ -16,7 +16,7 @@
 
 .total {
   font-weight: 600;
-  margin-top: 20px;
+  margin: 20px 0;
 }
 
 .legend {
@@ -40,6 +40,7 @@
   margin-right: 10px;
 }
 
-.category {
-  margin-right: 10px;
+.amount {
+  margin-left: auto;
+  font-weight: 500;
 }

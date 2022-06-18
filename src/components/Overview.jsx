@@ -68,8 +68,8 @@ const Overview = () => {
     return (
       <div key={nanoid()} className={classes.legendItem}>
         <div className={classes.color} style={style}></div>
-        <p className={classes.category}>{label.category}:</p>
-        <p>$123</p>
+        <p>{label.category}:</p>
+        <p className={classes.amount}>$123</p>
       </div>
     );
   });
