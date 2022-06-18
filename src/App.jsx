@@ -15,7 +15,7 @@ const App = () => {
     <div className={classes.container}>
       <main className={classes.main}>
         <Budget />
-        <Expenses />
+        <Expenses setCategories={setCategories} />
         <Overview categories={categories} />
       </main>
     </div>

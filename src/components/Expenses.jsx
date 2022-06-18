@@ -9,7 +9,7 @@ import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 import ExpensesInput from './ExpensesInput';
 import Expense from './Expense';
 
-const Expenses = () => {
+const Expenses = (props) => {
   const [isAddingExpense, setIsAddingExpense] = useState(false);
   const [expenses, setExpenses] = useState(
     JSON.parse(localStorage.getItem('expenses')) || []
@@ -53,7 +53,11 @@ const Expenses = () => {
         />
       )}
       {isAddingExpense && (
-        <ExpensesInput handleSubmit={addingExpense} setExpenses={setExpenses} />
+        <ExpensesInput
+          handleSubmit={addingExpense}
+          setExpenses={setExpenses}
+          setCategories={props.setCategories}
+        />
       )}
       <div className={classes.expensesContainer}>{expenseElemets}</div>
     </section>
