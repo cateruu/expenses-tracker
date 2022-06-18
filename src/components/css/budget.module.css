@@ -49,3 +49,7 @@
   cursor: pointer;
   color: var(--text-color-placeholder);
 }
+
+.minus {
+  color: var(--error-color);
+}

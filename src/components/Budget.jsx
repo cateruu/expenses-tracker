@@ -7,7 +7,7 @@ import { faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
 // components
 import BudgetInput from './BudgetInput';
 
-const Budget = () => {
+const Budget = (props) => {
   const [isAddingBudget, setIsAddingBudget] = useState(false);
   const [budget, setBudget] = useState(localStorage.getItem('budget') || 0);
 
@@ -18,6 +18,15 @@ const Budget = () => {
   useEffect(() => {
     localStorage.setItem('budget', budget);
   }, [budget]);
+
+  const actualBudget = () => {
+    let currentBudget = budget;
+    props.categories.forEach((category) => {
+      currentBudget -= category.amount;
+    });
+
+    return currentBudget;
+  };
 
   return (
     <section className={classes.budget}>
@@ -35,7 +44,13 @@ const Budget = () => {
           onClick={addBudget}
         />
       )}
-      <p className={classes.money}>${budget}</p>
+      <p
+        className={`${classes.money} ${
+          actualBudget() < 0 ? classes.minus : null
+        }`}
+      >
+        {actualBudget() < 0 ? `-$${actualBudget() * -1}` : `$${actualBudget()}`}
+      </p>
       {isAddingBudget && (
         <BudgetInput handleSubmit={addBudget} setBudget={setBudget} />
       )}

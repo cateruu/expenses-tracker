@@ -14,7 +14,7 @@ const App = () => {
   return (
     <div className={classes.container}>
       <main className={classes.main}>
-        <Budget />
+        <Budget categories={categories} />
         <Expenses setCategories={setCategories} />
         <Overview categories={categories} />
       </main>
