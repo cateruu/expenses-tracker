@@ -4,81 +4,62 @@ import { nanoid } from 'nanoid';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
 
-const labels = [
-  {
-    category: 'Travel',
-    color: '#F25E5E',
-  },
-  {
-    category: 'Entertainment',
-    color: '#EFF25E',
-  },
-  {
-    category: 'Food',
-    color: '#61F25E',
-  },
-  {
-    category: 'Shopping',
-    color: '#5ECFF2',
-  },
-  {
-    category: 'Housing',
-    color: '#BA5EF2',
-  },
-  {
-    category: 'Investments',
-    color: '#F25EEC',
-  },
-];
-
 ChartJS.register(ArcElement, Tooltip, Legend);
-const data = {
-  labels: labels.map((label) => label.category),
-  datasets: [
-    {
-      label: 'Spent this month',
-      data: [12, 4, 33, 123, 55, 33],
-      backgroundColor: labels.map((label) => label.color),
-    },
-  ],
-};
 
-const options = {
-  plugins: {
-    legend: {
-      display: false,
+const Overview = (props) => {
+  const data = {
+    labels: props.categories.map((category) => category.category),
+    datasets: [
+      {
+        label: 'Spent this month',
+        data: props.categories.map((category) => category.amount),
+        backgroundColor: props.categories.map((category) => category.color),
+      },
+    ],
+  };
 
-      labels: {
-        font: {
-          size: 12,
-          family: "'Inter', 'sans-serif'",
-          weight: '500',
+  const options = {
+    plugins: {
+      legend: {
+        display: false,
+
+        labels: {
+          font: {
+            size: 12,
+            family: "'Inter', 'sans-serif'",
+            weight: '500',
+          },
         },
       },
     },
-  },
-};
+  };
 
-const Overview = () => {
-  const labelElements = labels.map((label) => {
+  const categoryElements = props.categories.map((category) => {
     const style = {
-      backgroundColor: label.color,
+      backgroundColor: category.color,
     };
 
     return (
       <div key={nanoid()} className={classes.legendItem}>
         <div className={classes.color} style={style}></div>
-        <p>{label.category}:</p>
-        <p className={classes.amount}>$123</p>
+        <p>{category.category}:</p>
+        <p className={classes.amount}>${category.amount}</p>
       </div>
     );
   });
+
+  const calculateTotalSpent = () => {
+    let total = 0;
+    props.categories.forEach((category) => (total += category.amount));
+
+    return total;
+  };
   return (
     <section className={classes.overview}>
       <h2 className={classes.header}>Overview</h2>
       <Doughnut data={data} options={options} />
-      <p className={classes.total}>Total: $123123</p>
-      <div className={classes.legend}>{labelElements}</div>
+      <p className={classes.total}>Total: ${calculateTotalSpent()}</p>
+      <div className={classes.legend}>{categoryElements}</div>
     </section>
   );
 };
