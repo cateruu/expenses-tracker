@@ -1,4 +1,4 @@
-# Monthly Expenses Tracker
+# Expenses Tracker
 
 ### Demo: https://cateruu.github.io/expenses-tracker/
 
