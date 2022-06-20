@@ -8,6 +8,7 @@
   grid-template-areas:
     'header add'
     'expenses expenses';
+  position: relative;
 }
 
 .header {

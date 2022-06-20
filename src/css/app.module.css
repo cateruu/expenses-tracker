@@ -22,16 +22,6 @@
   font-family: 'Inter', sans-serif;
 }
 
-/* select {
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  appearance: none;
-}
-
-select::-ms-expand {
-  display: none;
-} */
-
 input::placeholder {
   font-size: 1.4rem;
   color: var(--text-color-placeholder);
@@ -46,4 +36,28 @@ input::-webkit-inner-spin-button {
 /* Firefox */
 input[type='number'] {
   -moz-appearance: textfield;
+}
+
+@media screen and (max-width: 1200px) {
+  .main {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .main {
+    height: 95%;
+    width: 60%;
+    grid-template: 130px auto auto / 1fr;
+    grid-template-areas:
+      'budget'
+      'overview'
+      'expenses';
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .main {
+    width: 95%;
+  }
 }

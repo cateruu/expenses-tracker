@@ -44,3 +44,16 @@
   margin-left: auto;
   font-weight: 500;
 }
+
+@media screen and (max-width: 880px) {
+  .chart {
+    width: 300px !important;
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .chart {
+    width: 100px !important;
+  }
+}

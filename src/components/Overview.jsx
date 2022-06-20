@@ -57,7 +57,7 @@ const Overview = (props) => {
   return (
     <section className={classes.overview}>
       <h2 className={classes.header}>Overview</h2>
-      <Doughnut data={data} options={options} />
+      <Doughnut data={data} options={options} className={classes.chart} />
       <p className={classes.total}>Total: ${calculateTotalSpent()}</p>
       <div className={classes.legend}>{categoryElements}</div>
     </section>
