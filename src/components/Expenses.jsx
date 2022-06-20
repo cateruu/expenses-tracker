@@ -28,10 +28,13 @@ const Expenses = (props) => {
     return (
       <Expense
         key={nanoid()}
+        id={expense.id}
         title={expense.title}
         amount={expense.amount}
         category={expense.category}
         date={expense.date}
+        setExpenses={setExpenses}
+        setCategories={props.setCategories}
       />
     );
   });

@@ -6,6 +6,7 @@ import './css/calendar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus, faAngleDown } from '@fortawesome/free-solid-svg-icons';
 // helper functions
+import { nanoid } from 'nanoid';
 import { getCurrentDay } from './getCurrentDay';
 // components
 import Calendar from 'react-calendar';
@@ -81,11 +82,15 @@ const ExpensesInput = (props) => {
     } else if (!formData.money) {
       setIsError({ error: true, text: 'Empty Amount' });
       return;
+    } else if (formData.money > 99999999.99) {
+      setIsError({ error: true, text: 'Has to be lower than 99999999.99' });
+      return;
     }
 
     props.setExpenses((prevState) => {
       return [
         {
+          id: nanoid(),
           title: formData.title,
           amount: formData.money,
           category: formData.category,
