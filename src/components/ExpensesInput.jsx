@@ -85,13 +85,13 @@ const ExpensesInput = (props) => {
 
     props.setExpenses((prevState) => {
       return [
-        ...prevState,
         {
           title: formData.title,
           amount: formData.money,
           category: formData.category,
           date: formData.date,
         },
+        ...prevState,
       ];
     });
 
