@@ -18,16 +18,13 @@ const Expense = (props) => {
     });
 
     props.setCategories((prevState) => {
-      const newState = prevState.map((category) => {
+      return prevState.map((category) => {
         if (category.category === props.category) {
           category.amount -= props.amount;
         }
 
         return category;
       });
-      console.log(newState);
-
-      return newState;
     });
   };
 

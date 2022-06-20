@@ -101,15 +101,13 @@ const ExpensesInput = (props) => {
     });
 
     props.setCategories((prevState) => {
-      const updated = prevState.map((category) => {
+      return prevState.map((category) => {
         if (category.category === formData.category) {
           category.amount += +formData.money;
         }
 
         return category;
       });
-
-      return updated;
     });
 
     props.handleSubmit();
