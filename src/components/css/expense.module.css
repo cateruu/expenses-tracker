@@ -5,6 +5,7 @@
   color: var(--text-color);
   padding: 10px 0;
   border-bottom: 1px solid var(--border-color);
+  position: relative;
 }
 
 .container {
@@ -32,8 +33,10 @@
 }
 
 .delete {
+  position: absolute;
+  right: 0;
+  bottom: 5px;
   color: var(--text-color-placeholder);
-  align-self: flex-end;
   cursor: pointer;
   transition: 0.2s;
 }
