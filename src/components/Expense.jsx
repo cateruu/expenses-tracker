@@ -1,5 +1,7 @@
 import React from 'react';
 import classes from './css/expense.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
 
 const Expense = (props) => {
   const deleteExpense = () => {
@@ -18,7 +20,7 @@ const Expense = (props) => {
     props.setCategories((prevState) => {
       return prevState.map((category) => {
         if (category.category === props.category) {
-          category.amount -= props.amount / 2;
+          category.amount -= props.amount;
         }
 
         return category;
@@ -33,8 +35,12 @@ const Expense = (props) => {
         <h3 className={classes.title}>{props.title}</h3>
         <p className={classes.category}>{props.category}</p>
       </div>
+      <FontAwesomeIcon
+        icon={faTrashCan}
+        className={classes.delete}
+        onClick={deleteExpense}
+      />
       <p className={classes.amount}>${props.amount}</p>
-      <p onClick={deleteExpense}>usun</p>
     </div>
   );
 };

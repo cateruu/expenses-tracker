@@ -30,3 +30,14 @@
 .amount {
   font-size: 1.5rem;
 }
+
+.delete {
+  color: var(--text-color-placeholder);
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.delete:hover {
+  color: var(--error-color);
+}
