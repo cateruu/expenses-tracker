@@ -15,6 +15,7 @@
     'none category date add';
   align-items: center;
   justify-items: center;
+  z-index: 1000;
 }
 
 .titleIcon {
