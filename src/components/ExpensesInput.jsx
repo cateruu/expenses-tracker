@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import classes from './css/expensesInput.module.css';
 import './css/calendar.css';
 // font awesome
@@ -10,8 +10,11 @@ import { nanoid } from 'nanoid';
 import { getCurrentDay } from './getCurrentDay';
 // components
 import Calendar from 'react-calendar';
+// context
+import { CategoriesContext } from '../App';
 
 const ExpensesInput = (props) => {
+  const setCategories = useContext(CategoriesContext);
   const [isChangingDate, setIsChangingDate] = useState(false);
   const [isError, setIsError] = useState({
     error: false,
@@ -100,7 +103,7 @@ const ExpensesInput = (props) => {
       ];
     });
 
-    props.setCategories((prevState) => {
+    setCategories((prevState) => {
       return prevState.map((category) => {
         if (category.category === formData.category) {
           category.amount += +formData.money;

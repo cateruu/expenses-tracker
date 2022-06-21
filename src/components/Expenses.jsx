@@ -34,7 +34,6 @@ const Expenses = (props) => {
         category={expense.category}
         date={expense.date}
         setExpenses={setExpenses}
-        setCategories={props.setCategories}
       />
     );
   });

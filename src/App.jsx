@@ -8,6 +8,8 @@ import Budget from './components/Budget';
 import Overview from './components/Overview';
 import Expenses from './components/Expenses';
 
+export const CategoriesContext = React.createContext();
+
 const App = () => {
   const [categories, setCategories] = useState(getCategories());
 
@@ -15,7 +17,9 @@ const App = () => {
     <div className={classes.container}>
       <main className={classes.main}>
         <Budget categories={categories} />
-        <Expenses setCategories={setCategories} />
+        <CategoriesContext.Provider value={setCategories}>
+          <Expenses />
+        </CategoriesContext.Provider>
         <Overview categories={categories} />
       </main>
     </div>

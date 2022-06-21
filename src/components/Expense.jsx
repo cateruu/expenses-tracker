@@ -1,9 +1,14 @@
 import React from 'react';
+import { useContext } from 'react';
 import classes from './css/expense.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashCan } from '@fortawesome/free-solid-svg-icons';
+// context
+import { CategoriesContext } from '../App';
 
 const Expense = (props) => {
+  const setCategories = useContext(CategoriesContext);
+
   const deleteExpense = () => {
     props.setExpenses((prevState) => {
       let newState = [];
@@ -17,7 +22,7 @@ const Expense = (props) => {
       return newState;
     });
 
-    props.setCategories((prevState) => {
+    setCategories((prevState) => {
       return prevState.map((category) => {
         if (category.category === props.category) {
           category.amount -= props.amount;
